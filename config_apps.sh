@@ -18,4 +18,8 @@ install-tui(){
 APP_NAME="RMPC Music Player"
 install-tui "$APP_NAME" rmpc float "music.png"
 
-
+# Sunshine
+echo "Setup Sunshine (systemctl) need root permission"
+sudo setcap cap_sys_admin+p $(readlink -f $(which sunshine))
+systemctl --user enable sunshine
+systemctl --user start sunshine
